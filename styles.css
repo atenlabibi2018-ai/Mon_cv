@@ -1,0 +1,133 @@
+/* Reset léger */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #222; background: #f6f7fb; padding: 20px; }
+
+/* Conteneur principal */
+.cv {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* Colonne gauche — red */
+.left {
+  background: #0f8bd1; /* red */
+  color: #fff;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* photo */
+.photo {
+  width: 100%;
+  display:flex;
+  justify-content:center;
+}
+.photo img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 4px solid rgba(255,255,255,0.12);
+  background: #ddd;
+}
+
+/* sections left */
+.left h2 {
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.left p.item {
+  font-size: 13px;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  opacity: 0.95;
+}
+
+.left ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 6px;
+}
+.left ul li {
+  font-size: 13px;
+  margin-bottom: 8px;
+  padding-left: 0;
+  position: relative;
+  padding-left: 18px;
+}
+.left ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: rgba(255,255,255,0.95);
+  font-weight: 700;
+}
+
+/* Colonne droite */
+.right {
+  padding: 28px 36px;
+}
+
+/* header name */
+.heading h1 {
+  color: #0b78b6;
+  font-size: 34px;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+}
+.heading .title {
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.heading hr {
+  border: 0;
+  height: 4px;
+  background: #111;
+  width: 70%;
+  margin: 8px 0 20px 0;
+  opacity: 0.08;
+}
+
+/* sections droite */
+.right h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+.right p { font-size: 14px; line-height: 1.6; margin-bottom: 12px; color: #444; }
+.job { margin-bottom: 16px; }
+.job-title { font-size: 14px; margin-bottom: 8px; color:#222; }
+
+/* listes dans right */
+.right ul { margin-left: 18px; margin-bottom: 8px; }
+.right ul li { margin-bottom: 6px; font-size: 14px; color: #444; }
+
+/* responsive : colonne unique sur mobile */
+@media (max-width: 820px) {
+  .cv { grid-template-columns: 1fr; }
+  .left { order: -1; }
+  .heading hr { width: 100%; }
+}
+
+/* impression */
+@media print {
+  body { background: white; padding: 0; }
+  .cv { box-shadow: none; max-width: 100%; }
+  .left { background: #0f8bd1; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: #000; text-decoration: none; }
+}
